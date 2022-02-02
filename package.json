@@ -1,0 +1,16 @@
+{
+  "name": "mongoose",
+  "version": "1.0.0",
+  "description": "Projeto de CRUD utilizando Mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js 0.0.0.0 8000"
+  },
+  "keywords": [],
+  "author": "Luiz Oliveira <luiiz.silverio@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^6.1.10"
+  }
+}
