@@ -66,7 +66,7 @@ Pessoa.findOne({ nome: "Luiz S."}, (err, pessoa) => {
 // Buscar todos os dados da collection
 async function getPessoas() {
   const pessoas = await Pessoa.find({}).exec()
-  console.log('1.', pessoas)
+  console.log(pessoas)
 }
 
 getPessoas()
