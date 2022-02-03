@@ -37,9 +37,8 @@ const luiz = new Pessoa({
   obs: "Autor do projeto App-Beer"
 })
 
-console.log(luiz)
 
-Inserir dados no banco
+// Inserir dados no banco
 luiz.save((err) => {
   if (err) {
     console.log(err)
@@ -70,3 +69,41 @@ async function getPessoas() {
 }
 
 getPessoas()
+
+// Excluir uma pessoa
+
+async function getPessoa(nome) {
+  const pessoa = await Pessoa.find({ nome: nome }).exec()
+  if (pessoa.length === 0) {
+    console.log(`${nome} não existe`)
+  }
+  else {
+    console.log(pessoa)
+  }
+}
+
+getPessoa("Alexandre")
+
+Pessoa.deleteOne({ nome: "Alexandre" }).exec()
+
+// Atualização de dados
+
+Pessoa.updateOne({ nome: "Luiz S." }, { idade: 48 }).exec()
+
+// Busca utilizando o where
+
+async function getPessoaNomeIdade(nome, idade) {
+  const pessoa = await Pessoa 
+        .where('idade').gte(idade)
+        .where('nome', nome)
+        .exec()
+
+  if (pessoa.length === 0) {
+    console.log('Esta pessoa não existe')
+  }
+  else {
+    console.log(pessoa)
+  }
+}
+
+getPessoaNomeIdade('Luiz S.', 40)
